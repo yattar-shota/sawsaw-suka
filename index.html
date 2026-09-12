@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sawsaw-suka</title>
+  <!-- Strictly Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-amber-50 min-h-screen flex flex-col items-center justify-center p-4 text-slate-800 font-sans">
+  
+  <!-- Title Area (Top) -->
+  <div class="text-center mb-6">
+    <h1 class="text-4xl font-extrabold text-amber-600">Sawsaw-suka</h1>
+  </div>
+
+  <!-- Game Container (Vertical Rectangle, fixed height) -->
+  <div id="game-container" class="bg-white rounded-3xl shadow-xl w-full max-w-sm h-[600px] relative overflow-hidden flex flex-col justify-end p-4 mx-auto">
+    
+    <!-- Interactive Game Area -->
+    <div class="flex flex-row justify-between items-end w-full h-full relative">
+      
+      <!-- Dip Button (Left) -->
+      <div class="w-1/4 flex justify-center pb-6 z-20">
+        <button id="dip-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-full shadow-md transition-transform transform hover:scale-105 active:scale-95 w-full text-lg select-none">
+          Dip
+        </button>
+      </div>
+
+      <!-- Center Action Area (Chant, Finger, Palm) -->
+      <div class="w-2/4 flex flex-col items-center justify-end relative h-full">
+        
+        <!-- Chant Text (Anchored higher up) -->
+        <div id="chant-text" class="absolute top-20 text-2xl font-bold text-amber-500 text-center z-30 w-full flex items-center justify-center h-10">
+          ready?
+        </div>
+        
+        <!-- Pointing Finger (Placed higher, smaller text size) -->
+        <div id="finger" class="absolute bottom-[280px] text-7xl transition-transform duration-200 ease-in-out z-10 select-none">
+          👇
+        </div>
+        
+        <!-- Palm (Smaller text size) -->
+        <div id="palm" class="text-7xl z-0 pb-6 select-none">
+          🖐️
+        </div>
+
+      </div>
+
+      <!-- Pull Button (Right) -->
+      <div class="w-1/4 flex justify-center pb-6 z-20">
+        <button id="pull-btn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-full shadow-md transition-transform transform hover:scale-105 active:scale-95 w-full text-lg select-none">
+          Pull
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Description Area (Bottom) -->
+  <div class="max-w-md text-center mt-8">
+    <p class="text-slate-600 text-sm leading-relaxed px-4">
+      Sawsaw-sukaについて<br>
+      「Sawsaw-suka（直訳：酢に浸す）」は、フィリピンの伝統的な手遊びゲームです。一人が広げた手のひらを、もう一人が「sawsaw suka, mahuli taya!(お酢に浸して、捕まったら負け!)」と唱えながら人差し指でつつきます。「taya!」の合図で手のひらを閉じた際、指が捕まってしまったら負けとなります。<br>
+      遊び方<br>
+      Dipを押して指を手のひらに浸しpullで戻すを繰り返して掛け声を始める。掛け声がtaya!に達すると手が閉じるのでpullを押して逃げる。
+    </p>
+  </div>
+
+  <!-- Hidden div to ensure Tailwind compiles the dynamic classes used in JavaScript -->
+  <div class="hidden translate-y-[220px]"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

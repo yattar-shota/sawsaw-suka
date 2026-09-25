@@ -14,46 +14,70 @@
     <h1 class="text-4xl font-extrabold text-amber-600">Sawsaw-suka</h1>
   </div>
 
-  <!-- Game Container (Vertical Rectangle, fixed height) -->
-  <div id="game-container" class="bg-white rounded-3xl shadow-xl w-full max-w-sm h-[600px] relative overflow-hidden flex flex-col justify-end p-4 mx-auto">
+  <!--Wrapper (Horizontal on PC, Vertical on Phones)-->
+  <div class="flex flex-col lg:flex-row items-stretch justify-center w-full max-w-6xl mx-auto gap-4 lg:gap-8 transition-all px-4">
     
-    <!-- Interactive Game Area -->
-    <div class="flex flex-row justify-between items-end w-full h-full relative">
-      
-      <!-- Dip Button (Left) -->
-      <div class="w-1/4 flex justify-center pb-6 z-20">
-        <button id="dip-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-full shadow-md transition-transform transform hover:scale-105 active:scale-95 w-full text-lg select-none">
-          Dip
-        </button>
+    <!--Leftside Pannel: Restrictions List-->
+    <div id="left-panel" class="hidden w-full max-w-xs flex-col justify-start bg-red-50 rounded-2xl p-4 lg:p-6 shadow-lg transition-all duration-500 opacity-0 transform -translate-x-10 border-2 border-red-400 text-left">
+      <h2 class="text-xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2">
+        課せられる制約
+      </h2>
+      <div id="left-rule-text" class="text-red-900 font-medium text-sm lg:text-base"></div>
+    </div>
+    <!-- Game Container (Vertical Rectangle, fixed height) -->
+      <div id="game-container" class="bg-white rounded-3xl shadow-xl w-full max-w-sm h-[600px] relative overflow-hidden flex flex-col justify-end p-4 transition-colors duration-500 flex-shrink-0">      
+      <!--Streak Counter-->
+        <div id="streak-counter" class="hidden absolute top-4 left-4 bg-red-600 text-white font-bold py-1 px-4 rounded-full z-40 shadow-md">
+        Streak: <span id="streak-value">0</span>
       </div>
-
-      <!-- Center Action Area (Chant, Finger, Palm) -->
-      <div class="w-2/4 flex flex-col items-center justify-end relative h-full">
+        <!-- Hard Mode Button (Hidden initially) -->
+      <button id="hard-mode-btn" class="hidden absolute top-4 right-4 bg-slate-800 text-white text-xs sm:text-sm font-bold py-2 px-4 rounded-full shadow-md transition-colors z-40">
+        Hard Mode
+      </button>
+      <!-- Interactive Game Area -->
+      <div class="flex flex-row justify-between items-end w-full h-full relative">
         
-        <!-- Chant Text (Anchored higher up) -->
-        <div id="chant-text" class="absolute top-20 text-2xl font-bold text-amber-500 text-center z-30 w-full flex items-center justify-center h-10">
-          ready?
-        </div>
-        
-        <!-- Pointing Finger (Placed higher, smaller text size) -->
-        <div id="finger" class="absolute bottom-[280px] text-7xl transition-transform duration-200 ease-in-out z-10 select-none">
-          👇
-        </div>
-        
-        <!-- Palm (Smaller text size) -->
-        <div id="palm" class="text-7xl z-0 pb-6 select-none">
-          🖐️
+        <!-- Dip Button (Left) -->
+        <div class="w-1/4 flex justify-center pb-6 z-20">
+          <button id="dip-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-full shadow-md transition-transform transform hover:scale-105 active:scale-95 w-full text-lg select-none">
+            Dip
+          </button>
         </div>
 
+        <!-- Center Action Area (Chant, Finger, Palm) -->
+        <div class="w-2/4 flex flex-col items-center justify-end relative h-full">
+          
+          <!-- Chant Text (Anchored higher up) -->
+          <div id="chant-text" class="absolute top-20 text-2xl font-bold text-amber-500 text-center z-30 w-full flex items-center justify-center h-10">
+            ready?
+          </div>
+          
+          <!-- Pointing Finger (Placed higher, smaller text size) -->
+          <div id="finger" class="absolute bottom-[280px] text-7xl transition-transform duration-200 ease-in-out z-10 select-none">
+            👇
+          </div>
+          
+          <!-- Palm (Smaller text size) -->
+          <div id="palm" class="text-7xl z-0 pb-6 select-none">
+            🖐️
+          </div>
+
+        </div>
+
+        <!-- Pull Button (Right) -->
+        <div class="w-1/4 flex justify-center pb-6 z-20">
+          <button id="pull-btn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-full shadow-md transition-transform transform hover:scale-105 active:scale-95 w-full text-lg select-none">
+            Pull
+          </button>
+        </div>
       </div>
-
-      <!-- Pull Button (Right) -->
-      <div class="w-1/4 flex justify-center pb-6 z-20">
-        <button id="pull-btn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-full shadow-md transition-transform transform hover:scale-105 active:scale-95 w-full text-lg select-none">
-          Pull
-        </button>
-      </div>
-
+    </div>
+    <!--Rightside Pannel-->
+    <div id="right-panel" class="hidden w-full max-w-xs flex-col justify-start bg-red-50 rounded-2xl p-4 lg:p-6 shadow-lg transition-all duration-500 opacity-0 transform translate-x-10 border-2 border-red-400 text-left">
+      <h2 class="text-xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2">
+        さらなる制約
+      </h2>
+      <div id="right-rule-text" class="text-red-900 font-medium text-sm lg:text-base"></div>
     </div>
   </div>
 
